@@ -5,6 +5,7 @@ export interface TaskNode {
   children: TaskNode[];
   lineIndex: number;
   dueDate?: string;
+  softDueDate?: string;
   tags: string[];
 }
 
@@ -64,11 +65,11 @@ export const DEFAULT_CONFIG: AppConfig = {
   activeFileIndex: 0,
   openOnStartup: true,
   rolledUpOnStartup: true,
-  fontFamily: "Inter",
+  fontFamily: "Segoe UI Variable",
   fontSize: 13,
   opacity: 0.88,
   blur: 24,
-  peekHotkey: "Ctrl+Shift+Space",
+  peekHotkey: "Ctrl+Win+Space",
   tags: [
     { name: "urgent", color: "#ff6b6b" },
     { name: "waiting", color: "#ffd166" },

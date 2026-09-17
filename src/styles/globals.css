@@ -207,10 +207,24 @@ textarea {
 }
 
 .section-name {
+  display: flex;
+  align-items: center;
+  gap: 4px;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.06em;
   color: var(--text-muted);
+}
+
+.tree-folder {
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  color: var(--accent);
+  font-size: 10px;
+}
+
+.tree-section-label {
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  color: rgba(255, 255, 255, 0.55);
 }
 
 .section-count {
@@ -225,10 +239,60 @@ textarea {
 }
 
 .task-item {
-  padding: 4px;
+  padding: 4px 4px 4px 2px;
   border-radius: 8px;
-  border-left: 2px solid transparent;
+  border-left: 2px solid var(--tree-accent, transparent);
   transition: background 0.12s ease;
+}
+
+.tree-root {
+  margin-left: 2px;
+}
+
+.tree-node {
+  position: relative;
+}
+
+.tree-connector {
+  flex-shrink: 0;
+  width: 18px;
+  margin-top: 2px;
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 11px;
+  line-height: 1.35;
+  color: var(--tree-accent, rgba(255, 255, 255, 0.22));
+  user-select: none;
+}
+
+.tree-toggle {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  margin-top: 2px;
+  border: none;
+  background: transparent;
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.tree-leaf {
+  flex-shrink: 0;
+  width: 16px;
+  margin-top: 2px;
+  text-align: center;
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 10px;
+  color: var(--tree-accent, rgba(255, 255, 255, 0.25));
+  user-select: none;
+}
+
+.tree-children {
+  list-style: none;
+  margin: 2px 0 0 8px;
+  padding: 0 0 0 10px;
+  border-left: 1px solid var(--tree-accent, rgba(255, 255, 255, 0.1));
 }
 
 .task-row {
@@ -267,19 +331,6 @@ textarea {
 
 .drag-grip:active {
   cursor: grabbing;
-}
-
-.collapse-btn {
-  flex-shrink: 0;
-  width: 16px;
-  height: 16px;
-  padding: 0;
-  margin-top: 2px;
-  border: none;
-  background: transparent;
-  color: var(--text-muted);
-  cursor: pointer;
-  font-size: 10px;
 }
 
 .task-item .checkbox,
@@ -327,7 +378,32 @@ textarea {
 
 .due {
   font-size: 10px;
+}
+
+.due-soft {
+  color: #a8d4ff;
+}
+
+.due-hard {
   color: var(--warning);
+}
+
+.task-item.deadline-soft-overdue {
+  background: rgba(255, 209, 102, 0.08);
+}
+
+.task-item.deadline-soft-overdue .due-soft {
+  color: #ffd166;
+  font-weight: 600;
+}
+
+.task-item.deadline-hard-overdue {
+  background: rgba(255, 107, 107, 0.1);
+}
+
+.task-item.deadline-hard-overdue .due-hard {
+  color: var(--danger);
+  font-weight: 600;
 }
 
 .children {
@@ -359,6 +435,17 @@ textarea {
   bottom: 10px;
   display: flex;
   gap: 6px;
+}
+
+.quick-add-section {
+  flex-shrink: 0;
+  max-width: 38%;
+  padding: 8px 8px;
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--text-primary);
+  font-size: 11px;
 }
 
 .quick-add-btn {
