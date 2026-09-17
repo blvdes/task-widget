@@ -11,7 +11,7 @@
 Cloud agent pushes to Cursor git remote. Mirror to your GitHub:
 
 ```powershell
-git remote add github https://github.com/YOUR_USER/task-widget.git
+git remote add github https://github.com/blvdes/task-widget.git
 git push github main
 ```
 

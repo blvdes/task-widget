@@ -1,6 +1,6 @@
 # TaskPane — START HERE
 
-Desktop task widget for Windows (beside Stardock Fences). **Planning is done.** v0.1 prototype is built.
+Desktop task widget for Windows (beside Stardock Fences). **Planning done. v1.1 built in Cloud.** Windows Local verify is the last step — see [docs/STATUS.md](docs/STATUS.md).
 
 ## You are here
 
@@ -9,20 +9,31 @@ Desktop task widget for Windows (beside Stardock Fences). **Planning is done.** 
 | 1 | Get code on your PC (see **Get the code** below) |
 | 2 | Open **Local Cursor agent** on Windows |
 | 3 | Paste from **`docs/LOCAL-AGENT-PROMPT.md`** |
-| 4 | Run `npm install` then `.\scripts\dev.bat` |
+| 4 | Run `npm install` then `.\scripts\dev.bat` (see **First run** below) |
+
+### First run (Windows PowerShell)
+
+```powershell
+cd task-widget
+npm install
+.\scripts\dev.bat
+```
+
+Then paste **`docs/LOCAL-AGENT-PROMPT.md`** into a **Local** agent and test beside Fences.
 
 ### Get the code (pick one)
 
-**A — Repo exists (may be empty until you push):** https://github.com/blvdes/task-widget
+**A — GitHub:** https://github.com/blvdes/task-widget
 
-Push code once from Cursor (Create repo pill) **or** from a terminal with GitHub auth:
+> **Important:** GitHub may lag the Cloud build. Run the check in **[docs/SYNC-CODE.md](docs/SYNC-CODE.md)** — if `src/lib/store.ts` is missing, use **Open in Local** from the Cloud agent run instead of an old clone.
+
+If the repo looks empty or broken, force-push from a synced copy:
 
 ```powershell
-git remote add github https://github.com/blvdes/task-widget.git
-git push -u github main
+.\scripts\push-to-github.ps1
 ```
 
-Then on Windows:
+Then clone on Windows:
 
 ```powershell
 git clone https://github.com/blvdes/task-widget.git
@@ -31,9 +42,9 @@ npm install
 .\scripts\dev.bat
 ```
 
-**B — Skip GitHub:** open this project folder in **Cursor Local** if you already have the files synced.
+**B — Already have this folder in Cursor Local:** skip clone; run `npm install` and `.\scripts\dev.bat`.
 
-**C — Open this folder directly in Cursor Local** if you already synced it another way.
+**C — Sync from Cloud agent:** use **Open in Local** on this run, then `.\scripts\push-to-github.ps1` if you want GitHub too.
 
 ## Quick links
 
@@ -53,4 +64,4 @@ Open http://127.0.0.1:4317
 
 ## After first run
 
-Reply **`works`** or send errors/screenshots. v1.1 backlog is in `docs/PLANNING-LOCKED.md`.
+Reply **`works`** or send errors/screenshots. Cloud-side v1.1 is complete; Local agent continues from `docs/LOCAL-AGENT-PROMPT.md`.

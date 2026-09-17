@@ -26,7 +26,7 @@ cd taskpane
 
 First launch creates:
 
-- `Documents\TaskPane\ADMIN.md` — sample tasks (from your original ADMIN list)
+- `Documents\TaskPane\tasks.md` — your task list (seeded from `sample/tasks.md`)
 - `%APPDATA%\TaskPane\config.json` — settings + window position
 
 ## Build installer
@@ -51,9 +51,9 @@ Output:
 
 | Action | Result |
 |--------|--------|
-| Single-click tray | Spotlight quick-add |
+| Single-click tray | Peek + quick-add (merged) |
 | Double-click tray | Bring pane to front |
-| `Ctrl+Shift+Space` | Peek — pane above all windows |
+| `Ctrl+Win+Space` | Peek + quick-add — pane above windows, task input focused |
 
 ## Beside Stardock Fences
 

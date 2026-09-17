@@ -9,7 +9,7 @@
 
 | Area | v0.1 (now) | v1.1 (next) |
 |------|------------|-------------|
-| **Storage** | `.md` files + JSON config/meta | Structured local store (TBD: JSON doc or SQLite); Markdown import/export |
+| **Storage** | `.md` files + JSON config/meta | **`tasks.json` canonical** + auto-exported `tasks.md` |
 | **UI** | Dark glass pane, section headers | Terminal-style tree expand; status colour accents |
 | **Desktop** | WorkerW embed; peek above windows | Same + Esc blur; merged peek/quick pane |
 | **Input** | Check-off, follow-up, drag reorder | Checked → bottom + recency sort; soft + hard deadlines |
@@ -59,7 +59,8 @@ Decision deferred to Local agent after UX test — prototype validates desktop l
 
 | File | Path |
 |------|------|
-| Tasks | `%USERPROFILE%\Documents\TaskPane\tasks.md` |
+| Tasks (canonical) | `%USERPROFILE%\Documents\TaskPane\tasks.json` |
+| Markdown export | `%USERPROFILE%\Documents\TaskPane\tasks.md` |
 | Config | `%APPDATA%\TaskPane\config.json` |
 | Touch meta (stale) | `%APPDATA%\TaskPane\meta.json` |
 

@@ -12,13 +12,13 @@
 | Phase | Storage | Status |
 |-------|---------|--------|
 | **v0.1** | `.md` files on disk | Built — test UX + desktop layer |
-| **v1.1** | Revisit structured local store + export | **Planned** — files must not block UI evolution |
+| **v1.1** | Revisit structured local store + export | **`tasks.json` + `.md` export** (Local verify) |
 
 Config paths (v0.1):
 
 - `%APPDATA%\TaskPane\config.json`
 - `%APPDATA%\TaskPane\meta.json`
-- Tasks: `%USERPROFILE%\Documents\TaskPane\` (default `ADMIN.md` → rename to `tasks.md` in v1.1)
+- Tasks: `%USERPROFILE%\Documents\TaskPane\tasks.json` (+ exported `tasks.md`)
 
 ---
 
@@ -57,12 +57,12 @@ Built in Cloud (Local must verify on Windows):
 
 ## v1.1 backlog (from planning)
 
-- [ ] Storage architecture revisit (not file-limited)
-- [ ] Merge peek + quick-add (`Ctrl+Win+Space`, customisable)
-- [ ] Checked tasks → bottom + recency sort
-- [ ] Terminal-style tree expand (2E)
-- [ ] Soft + hard deadlines
-- [ ] Customisable status labels + colour accents
-- [ ] Default `tasks.md`
-- [ ] Esc → blur to desktop layer
+- [x] Storage architecture revisit (`tasks.json` + Markdown export)
+- [x] Merge peek + quick-add (`Ctrl+Win+Space`; browser preview: `Ctrl+Shift+Space`)
+- [x] Checked tasks → bottom + recency sort (v1.1 partial — Local verify)
+- [x] Terminal-style tree expand (2E) — Local verify polish
+- [x] Soft + hard deadlines (`⏳` start-by, `📅` due)
+- [x] Customisable status labels + colour accents (Settings)
+- [x] Default `tasks.md`
+- [x] Esc → blur to desktop layer (Local verify)
 - [ ] Glass-matched font

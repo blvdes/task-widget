@@ -28,7 +28,7 @@ cargo -v
 ### 1. Get the code
 
 ```powershell
-git clone https://github.com/YOUR_USER/task-widget.git
+git clone https://github.com/blvdes/task-widget.git
 cd task-widget
 ```
 
@@ -89,7 +89,7 @@ Output: `src-tauri\target\release\bundle\` (`.msi` / `.exe`)
 |---------|-------------|
 | Dark glass pane | Left side of desktop, beside Fences |
 | Desktop layer | Pane on wallpaper; click app → pane behind; **tray → Send to desktop layer** if wrong |
-| Peek | `Ctrl+Shift+Space` (v0.1) — v1.1 → `Ctrl+Win+Space` merged with quick-add |
+| Peek + quick-add | `Ctrl+Win+Space` — expands pane, focuses task input |
 | Check off + follow-up | Check task → follow-up field focuses |
 | Sections | ADMIN, LIFE, WORK, … (these are your category headers) |
 | Quick add | Bottom bar or tray single-click spotlight |
