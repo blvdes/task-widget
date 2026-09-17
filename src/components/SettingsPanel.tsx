@@ -7,9 +7,17 @@ interface Props {
   onClose: () => void;
   onAddFile: (path: string) => void;
   onImport: (path: string) => void;
+  onExportMarkdown?: () => void;
 }
 
-export function SettingsPanel({ config, onChange, onClose, onAddFile, onImport }: Props) {
+export function SettingsPanel({
+  config,
+  onChange,
+  onClose,
+  onAddFile,
+  onImport,
+  onExportMarkdown,
+}: Props) {
   const update = <K extends keyof AppConfig>(key: K, value: AppConfig[K]) => {
     onChange({ ...config, [key]: value });
   };
@@ -105,6 +113,50 @@ export function SettingsPanel({ config, onChange, onClose, onAddFile, onImport }
         </div>
 
         <div className="settings-row">
+          <label>Status keywords (colour accents on tree)</label>
+          {config.keywords.map((kw, i) => (
+            <div key={i} style={{ display: "flex", gap: 6, marginTop: 6 }}>
+              <input
+                value={kw.word}
+                placeholder="WORD"
+                onChange={(e) => {
+                  const keywords = [...config.keywords];
+                  keywords[i] = { ...kw, word: e.target.value.toUpperCase() };
+                  update("keywords", keywords);
+                }}
+              />
+              <input
+                type="color"
+                value={kw.color}
+                onChange={(e) => {
+                  const keywords = [...config.keywords];
+                  keywords[i] = { ...kw, color: e.target.value };
+                  update("keywords", keywords);
+                }}
+                style={{ width: 40, padding: 2 }}
+              />
+              <button
+                type="button"
+                className="quick-add-btn"
+                onClick={() => update("keywords", config.keywords.filter((_, j) => j !== i))}
+              >
+                ✕
+              </button>
+            </div>
+          ))}
+          <button
+            type="button"
+            className="quick-add-btn"
+            style={{ marginTop: 8 }}
+            onClick={() =>
+              update("keywords", [...config.keywords, { word: "NEW", color: "#6c9eff" }])
+            }
+          >
+            + Add keyword
+          </button>
+        </div>
+
+        <div className="settings-row">
           <label>Task files (one path per line)</label>
           <textarea
             style={{
@@ -130,6 +182,11 @@ export function SettingsPanel({ config, onChange, onClose, onAddFile, onImport }
         </div>
 
         <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 16 }}>
+          {onExportMarkdown && (
+            <button type="button" className="quick-add-btn" onClick={onExportMarkdown}>
+              Export Markdown copy
+            </button>
+          )}
           <button
             type="button"
             className="quick-add-btn"
